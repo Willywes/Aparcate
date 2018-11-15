@@ -24,8 +24,15 @@
             android:entries="@array/array_tiempos" android:layout_margin="15dp"/>
 
     <Button
-            android:id="@+id/buttonChoose"
+            android:id="@+id/btnChoose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp" android:text="subir imagen"/>
+            android:layout_margin="15dp"
+            android:text="subir imagen"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView" />
+
 </LinearLayout>
