@@ -6,4 +6,6 @@
     <color name="colorAntes">#6977ef</color>
 
     <color name="colorWhite">#ffffff</color>
+    <color name="colorGrey">#ededed</color>
+    <color name="DarkText">#424242</color>
 </resources>

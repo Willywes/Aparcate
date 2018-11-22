@@ -10,48 +10,9 @@
         tools:context=".MainActivity"
         android:orientation="vertical">
 
-    <Spinner
+    <ListView
+            android:id="@+id/lvPublicaciones"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spRegiones"
-            android:entries="@array/array_regiones" android:layout_margin="15dp"/>
-
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/etTitulo"
-            android:hint="Ingrese Titulo" android:layout_margin="15dp" android:autofillHints=""/>
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/etPrecio"
-                android:hint="Precio"
-                android:layout_margin="15dp" android:autofillHints=""/>
-        <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spTiempo"
-                android:entries="@array/array_tiempos" android:layout_margin="15dp"/>
-    </LinearLayout>
-
-    <Button
-            android:id="@+id/btnChoose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:text="subir imagen"/>
-
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView" />
+            android:layout_height="match_parent" />
 
 </LinearLayout>
