@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="array_tiempos">
-        <item>Día</item>
+        <item>Diario</item>
         <item>Semanal</item>
         <item>Mensual</item>
         <item>Anual</item>
-        <item>Indefinido</item>
+        <item>Otro</item>
     </string-array>
     <string-array name="array_regiones">
-        <item>Valparaiso</item>
+        <item>Arica</item>
+        <item>Iquique</item>
+        <item>Antofagasta</item>
+        <item>Copiapó</item>
+        <item>La Serena</item>
+        <item>Valparaíso</item>
         <item>Santiago</item>
+        <item>Rancagua</item>
+        <item>Concepción</item>
+        <item>Temuco</item>
+        <item>Valdivia</item>
+        <item>Puerto Montt</item>
+        <item>Coyhaique</item>
+        <item>Punta Arenas</item>
+    </string-array>
+
+    <string-array name="array_tiempos_search">
+        <item>Todos</item>
+        <item>Diario</item>
+        <item>Semanal</item>
+        <item>Mensual</item>
+        <item>Anual</item>
+        <item>Otro</item>
+    </string-array>
+    <string-array name="array_regiones_search">
+        <item>Todas</item>
+        <item>Arica</item>
+        <item>Iquique</item>
+        <item>Antofagasta</item>
+        <item>Copiapó</item>
+        <item>La Serena</item>
+        <item>Valparaíso</item>
+        <item>Santiago</item>
+        <item>Rancagua</item>
+        <item>Concepción</item>
+        <item>Temuco</item>
+        <item>Valdivia</item>
+        <item>Puerto Montt</item>
+        <item>Coyhaique</item>
+        <item>Punta Arenas</item>
     </string-array>
 </resources>

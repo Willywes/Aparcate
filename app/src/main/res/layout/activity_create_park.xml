@@ -9,12 +9,11 @@
         tools:context=".CreateParkActivity">
 
 
-
     <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spRegiones"
-            android:entries="@array/array_regiones" android:layout_margin="15dp"/>
+            android:entries="@array/array_regiones" android:layout_margin="15dp" android:spinnerMode="dialog"/>
 
     <EditText
             android:layout_width="match_parent"
@@ -39,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/spTiempo"
-                android:entries="@array/array_tiempos" android:layout_margin="15dp"/>
+                android:entries="@array/array_tiempos" android:layout_margin="15dp" android:spinnerMode="dialog"/>
     </LinearLayout>
 
     <Button

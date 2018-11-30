@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:id="@+id/detail"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="290dp" tools:srcCompat="@tools:sample/avatars" android:id="@+id/dImage"
+            android:scaleType="centerCrop"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:paddingBottom="0dp" android:paddingLeft="20dp"
+            android:paddingRight="20dp" android:paddingTop="20dp">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/dCity" android:layout_weight="1"
+                    android:paddingBottom="10dp"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/dPeriod" android:layout_weight="1"
+                    android:gravity="right"/>
+        </LinearLayout>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/dTitle" android:paddingBottom="10dp"
+                android:textSize="24sp"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/dContent" android:paddingBottom="10dp"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/dPrice" android:paddingBottom="10dp"
+                android:gravity="right" android:textColor="@color/colorPrimaryDark" android:textStyle="bold"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:text="Nombre Contacto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_weight="0" android:textStyle="bold|italic"
+                    android:layout_marginRight="10dp"/>
+            <TextView
+                    android:text="Nombre del contacto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/dNames" android:textStyle="italic"
+                    android:paddingBottom="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:paddingLeft="15dp" android:paddingRight="15dp"
+            android:paddingBottom="25dp">
+        <Button
+                android:text="ENVIAR MAIL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/dEmail" android:layout_weight="1"
+                style="@style/Widget.AppCompat.Button.Colored"/>
+        <Button
+                android:text="LLAMAR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/dLlamar" android:layout_weight="1"
+                style="@style/Widget.AppCompat.Button.Colored"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-     android:id="@+id/form_search"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:id="@+id/form_search"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
 
     <LinearLayout
@@ -17,14 +17,16 @@
                 android:text="Ciudad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"/>
         <Spinner
-                android:id="@+id/spCiudadFilter"
+                android:id="@+id/fCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/array_regiones"
-        />
+                android:entries="@array/array_regiones_search"
+                android:spinnerMode="dialog"/>
     </LinearLayout>
+
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -33,17 +35,19 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp">
         <TextView
-                android:text="Tiempo"
+                android:text="Periodo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"/>
         <Spinner
-                android:id="@+id/spTiempoFilter"
+                android:id="@+id/fPeriod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/array_tiempos"
-        />
+                android:entries="@array/array_tiempos_search"
+                android:spinnerMode="dialog"/>
     </LinearLayout>
+
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -53,16 +57,31 @@
             android:layout_marginTop="20dp">
 
         <TextView
-                android:text="Rango Precio"
+                android:text="Ordenar Por"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"/>
 
-        <SeekBar
-                android:id="@+id/seekBar"
+        <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="1000000"/>
+                android:layout_height="match_parent"
+                android:checkedButton="@+id/radioButton"
+                android:orientation="horizontal">
+            <RadioButton
+                    android:text="Fecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fDate"
+                    android:layout_weight="1"/>
+            <RadioButton
+                    android:text="Precio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fPrice"
+                    android:layout_weight="1"
+                    android:checked="false"/>
+        </RadioGroup>
 
     </LinearLayout>
 
