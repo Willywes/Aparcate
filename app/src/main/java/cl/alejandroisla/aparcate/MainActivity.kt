@@ -3,6 +3,7 @@ package cl.alejandroisla.aparcate
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.support.design.widget.NavigationView
@@ -49,18 +50,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
 
 
-       /* listaEstacionamientos.add(Estacionamiento(1, "https://picsum.photos/200/300", "Estacionamieno grande", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",, "Valparaiso","Diario", "4.000", "1", null, null , "1")) */
+        /* listaEstacionamientos.add(Estacionamiento(1, "https://picsum.photos/200/300", "Estacionamieno grande", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",, "Valparaiso","Diario", "4.000", "1", null, null , "1")) */
         updateListView()
 
         getAllParking(null, null, null, null)
 
     }
 
-    private fun getAllParking(price : String?, date :  String?, city : String?, period : String?){
+    private fun getAllParking(price: String?, date: String?, city: String?, period: String?) {
 
-
-
-        var progressDoalog = ProgressDialog (this)
+        var progressDoalog = ProgressDialog(this)
         progressDoalog.setMax(100)
         progressDoalog.setMessage("Its loading....")
         progressDoalog.setTitle("ProgressDialog bar example")
@@ -69,19 +68,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         var urlParkings = "http://nominacarrera.tucreativa.cl/aparcate/parkings?"
 
-        if(city != null){
+        if (city != null) {
             urlParkings = urlParkings + "city=" + city + "&"
         }
 
-        if(period != null){
+        if (period != null) {
             urlParkings = urlParkings + "period=" + period + "&"
         }
 
-        if(price != null){
+        if (price != null) {
             urlParkings = urlParkings + "price=" + price + "&"
         }
 
-        if(date != null){
+        if (date != null) {
             urlParkings = urlParkings + "date=" + date + "&"
         }
 
@@ -97,9 +96,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
                 println(listaEstacionamientos)
 
-               // uiThread { longToast("Peticion realizada") }
+                // uiThread { longToast("Peticion realizada") }
             } catch (ex: Exception) {
-                Log.d("Error", "Error la pm " +  ex.message)
+                Log.d("Error", "Error la pm " + ex.message)
             }
         }
 
@@ -145,7 +144,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
 
-            R.id.nav_buscar_arriendo ->{
+            R.id.nav_buscar_arriendo -> {
                 filterEstacionamientos()
             }
 
@@ -156,9 +155,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
             R.id.nav_share -> {
-
+                val url = "https://www.google.com/search?q=aparcate"
+                val i = Intent(Intent.ACTION_VIEW)
+                i.data = Uri.parse(url)
+                startActivity(i)
             }
             R.id.nav_about -> {
+
+                val builder = AlertDialog.Builder(this)
+
+                builder.setTitle("Acerca de ")
+                builder.setMessage("Desarrollado por Alejandro Isla, aplicación para la gestión de peliculas de cinema, ale.isla@alumnos.duoc.cl")
+
+                builder.setPositiveButton("OK") { dialog, whichButton ->
+
+                    dialog.dismiss()
+                }
+
+
+                builder.show()
 
             }
         }
@@ -167,13 +182,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    private fun updateListView(){
+    private fun updateListView() {
         var notesAdapter = ParkingAdapter(this, listaEstacionamientos)
         lvPublicaciones.adapter = notesAdapter
     }
 
 
     inner class ParkingAdapter : BaseAdapter {
+
         private var estaList = ArrayList<ParkingUser.Parking>()
         private var context: Context? = null
 
@@ -207,7 +223,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             Glide.with(this@MainActivity).load(estaList[position].image).into(vh.ivImagen)
 
-
             cvShow.setOnClickListener {
 
                 showDetail(position)
@@ -216,23 +231,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             return view
         }
+
         override fun getItem(position: Int): Any {
             return estaList[position]
         }
+
         override fun getItemId(position: Int): Long {
             return position.toLong()
         }
+
         override fun getCount(): Int {
             return estaList.size
         }
     }
 
 
-    private fun showDetail(position : Int?){
+    private fun showDetail(position: Int?) {
 
         val builder = AlertDialog.Builder(this)
 
-        val viewInflated = LayoutInflater.from(this).inflate(R.layout.detail, detail , false)
+        val viewInflated = LayoutInflater.from(this).inflate(R.layout.detail, detail, false)
         builder.setView(viewInflated)
 
         var Parking = listaEstacionamientos[position!!]
@@ -260,16 +278,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         Glide.with(this@MainActivity).load(Parking.image).into(image)
 
         try {
+
             llamar.setOnClickListener {
                 makeCall("+56" + Parking.user!!.phone)
             }
 
             email.setOnClickListener {
-                email(Parking.user!!.email,
-                    "Consulta por " +  Parking.title,
-                    "Hola " + Parking.user!!.names + ", Quería saber mas detalles de este anuncio.")
+                email(
+                    Parking.user!!.email,
+                    "Consulta por " + Parking.title,
+                    "Hola " + Parking.user!!.names + ", Quería saber mas detalles de este anuncio."
+                )
             }
-        }catch (exx: Exception){
+        } catch (exx: Exception) {
             Toast.makeText(this@MainActivity, exx.message.toString(), Toast.LENGTH_SHORT).show()
         }
 
@@ -279,52 +300,47 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     private class ViewHolder(view: View?) {
-        val ivImagen : ImageView // image
+
+        val ivImagen: ImageView // image
         val tvCiudad: TextView // city
         val tvTipo: TextView // periodo
         val tvTitulo: TextView // title
-       // val tvContenido: TextView
+        // val tvContenido: TextView
         val tvPrecio: TextView // price
 
-
         init {
+
             this.ivImagen = view?.findViewById(R.id.ivImagen) as ImageView
             this.tvCiudad = view.findViewById(R.id.tvCiudad) as TextView
             this.tvTipo = view.findViewById(R.id.tvTipo) as TextView
             this.tvTitulo = view.findViewById(R.id.tvTitulo) as TextView
-           // this.tvContenido = view?.findViewById(R.id.tvContenido) as TextView
+            // this.tvContenido = view?.findViewById(R.id.tvContenido) as TextView
             this.tvPrecio = view.findViewById(R.id.tvPrecio) as TextView
-
 
         }
     }
 
-    private fun filterEstacionamientos(){
+    private fun filterEstacionamientos() {
+
         val builder = AlertDialog.Builder(this)
 
         builder.setTitle("Selecciona opciones de filtro")
         val viewInflated = LayoutInflater.from(this).inflate(R.layout.form_search, form_search, false)
         builder.setView(viewInflated)
 
-
         val city = viewInflated.findViewById(R.id.fCity) as Spinner
-
-
-
 
         builder.setPositiveButton("Buscar") { dialog, whichButton ->
 
-            if(!city.equals("Todas")){
+            if (!city.equals("Todas")) {
 
                 getAllParking(null, null, city.selectedItem.toString(), null)
 
             }
 
-            if(city.equals("Todas")){
-                getAllParking(null, null, null,  null)
+            if (city.equals("Todas")) {
+                getAllParking(null, null, null, null)
             }
-
-
 
             dialog.dismiss()
         }
@@ -333,8 +349,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         builder.show()
     }
-
-
 
 }
 

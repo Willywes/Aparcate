@@ -39,7 +39,7 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.2.0'
 
     // wea para okhttp3
-    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     //implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
 
     // anko api rest
@@ -48,5 +48,5 @@ dependencies {
 
     //Gson para leer los json
 
-    compile 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.google.code.gson:gson:2.8.2'
 }

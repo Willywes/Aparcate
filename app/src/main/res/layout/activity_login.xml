@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp" android:layout_marginBottom="20dp">
+                android:layout_marginTop="20dp" android:layout_marginBottom="10dp">
 
             <LinearLayout
                     android:orientation="horizontal"
@@ -53,13 +53,18 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView"
                     android:layout_marginBottom="20dp"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="10dp"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/errorLogin" android:gravity="center"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_marginBottom="10dp"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:ems="20"
-                    android:id="@+id/etEmail"
+                    android:id="@+id/emailLogin"
                     android:layout_marginBottom="15dp"
                     android:hint="E-Mail"
                     android:drawableLeft="@drawable/ic_email_black_24dp"
@@ -70,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:ems="10"
-                    android:id="@+id/etPassword"
+                    android:id="@+id/passLogin"
                     android:layout_marginBottom="15dp"
                     android:hint="Password"
                     android:drawableLeft="@drawable/ic_vpn_key_black_24dp"

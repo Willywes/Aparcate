@@ -12,7 +12,7 @@
     <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spRegiones"
+            android:id="@+id/nCity"
             android:entries="@array/array_regiones" android:layout_margin="15dp" android:spinnerMode="dialog"/>
 
     <EditText
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/etTitulo"
+            android:id="@+id/nTitle"
             android:hint="Ingrese Titulo" android:layout_margin="15dp" android:autofillHints=""/>
     <LinearLayout
             android:orientation="horizontal"
@@ -31,16 +31,22 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/etPrecio"
+                android:id="@+id/nPrice"
                 android:hint="Precio"
                 android:layout_margin="15dp" android:autofillHints=""/>
         <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/spTiempo"
+                android:id="@+id/nPeriod"
                 android:entries="@array/array_tiempos" android:layout_margin="15dp" android:spinnerMode="dialog"/>
     </LinearLayout>
 
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/nContent" android:layout_margin="15dp" android:hint="Contenido"/>
     <Button
             android:id="@+id/btnChoose"
             android:layout_width="wrap_content"
@@ -52,5 +58,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageView"/>
+    <Button
+            android:text="Guardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/btnSave" android:layout_margin="15dp"
+            style="@style/Widget.AppCompat.Button.Colored"/>
 
 </LinearLayout>

@@ -12,10 +12,10 @@
 
     <item android:title="¿Tienes Estacionamientos?">
         <menu>
-            <item
+           <!-- <item
                     android:id="@+id/nav_mis_estacionamientos"
                     android:icon="@drawable/ic_list_black_24dp"
-                    android:title="Mis Estacionamientos"/>
+                    android:title="Mis Estacionamientos"/>-->
             <item
                     android:id="@+id/nav_arrendar"
                     android:icon="@drawable/ic_add_black_24dp"
